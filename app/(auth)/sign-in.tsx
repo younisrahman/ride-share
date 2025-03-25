@@ -13,11 +13,12 @@ import {
 
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
-import OAuth from "@/components/OAuth";
+// import OAuth from "@/components/OAuth";
 import { icons, images } from "@/constants";
 
 const SignIn = () => {
   const { signIn, setActive, isLoaded } = useSignIn();
+
   const router = useRouter();
 
   const [emailAddress, setEmailAddress] = useState("");
@@ -61,25 +62,40 @@ const SignIn = () => {
           </Text>
         </View>
 
-        <TextInput
-          autoCapitalize="none"
-          value={emailAddress}
-          placeholder="Enter email"
-          onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
-        />
-        <TextInput
-          value={password}
-          placeholder="Enter password"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        />
-        <TouchableOpacity onPress={onSignInPress}>
-          <Text>Continue</Text>
-        </TouchableOpacity>
-        <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
-          <Text>Don't have an account?</Text>
-          <Link href="/sign-up">
-            <Text>Sign up</Text>
+        <View className="p-5">
+          <InputField
+            label="Email"
+            placeholder="Enter email"
+            icon={icons.email}
+            textContentType="emailAddress"
+            value={emailAddress}
+            onChangeText={setEmailAddress}
+          />
+
+          <InputField
+            label="Password"
+            placeholder="Enter password"
+            icon={icons.lock}
+            secureTextEntry={true}
+            textContentType="password"
+            value={password}
+            onChangeText={setPassword}
+          />
+
+          <CustomButton
+            title="Sign In"
+            onPress={onSignInPress}
+            className="mt-6"
+          />
+
+          {/* <OAuth /> */}
+
+          <Link
+            href="/sign-up"
+            className="text-lg text-center text-general-200 mt-10"
+          >
+            Don't have an account?{" "}
+            <Text className="text-primary-500">Sign Up</Text>
           </Link>
         </View>
       </View>
