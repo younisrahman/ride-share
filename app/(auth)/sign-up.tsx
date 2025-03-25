@@ -1,5 +1,5 @@
 import { useSignUp } from "@clerk/clerk-expo";
-import { Link, router, useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Alert,
@@ -21,9 +21,6 @@ import { icons, images } from "@/constants";
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
   const router = useRouter();
-
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
