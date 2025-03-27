@@ -1,15 +1,7 @@
 import { useSignIn } from "@clerk/clerk-expo";
-import { Link, router, useRouter } from "expo-router";
-import { useCallback, useState } from "react";
-import {
-  Alert,
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Link, useRouter } from "expo-router";
+import { useState } from "react";
+import { Image, ScrollView, Text, View } from "react-native";
 
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
